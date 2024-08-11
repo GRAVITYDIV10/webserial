@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>webserial</title>
+	<link href="style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div id="term_wrap">
+	<div id="term_container">
+	</div>
+	<div id="term_bar">
+		<hr>
+		<input type="number" id="baudrate" value="115200">
+		<input type="number" id="databits" value="8">
+		<input type="number" id="stopbits" value="1">
+		<label>PARITY:</label>
+		<select id="parity">
+			<option value="none">NONE</option>
+			<option value="odd">ODD</option>
+			<option value="even">EVEN</option>
+		</select>
+		<label>FLOW CONTROL:</label>
+		<select id="flow_control">
+			<option value="none">NONE</option>
+			<option value="hardware">HARDWARE</option>
+		</select>
+		<hr>
+		<input type="text" id="state" readonly="true">
+		<label>CTS:</label>
+		<input type="text" id="cts" readonly="true" size="2">
+		<label>DCD:</label>
+		<input type="text" id="dcd" readonly="true" size="2">
+		<label>DSR:</label>
+		<input type="text" id="dsr" readonly="true" size="2">
+		<label>RING:</label>
+		<input type="text" id="ring" readonly="true" size="2">
+		<hr>
+		<button onclick="serial_open()">OPEN</button>
+		<button onclick="serial_close()">CLOSE</button>
+		<button onclick="serial_logrx()">LOG</button>
+		<label>BREAK:</label>
+		<button id="break" onclick="serial_break_toggle()">NOP</button>
+		<label>DTR:</label>
+		<button id="dtr" onclick="serial_dtr_toggle()">NOP</button>
+		<label>RTS:</label>
+		<button id="rts" onclick="serial_rts_toggle()">NOP</button>
+		<hr>
+		<textarea type="text" id="paste", rows="1" cols="80"></textarea>
+		<button onclick="serial_paste()">PASTE</button>
+		<hr>
+	</div>
+</div>
+<script type="text/javascript" src="term.js"></script>
+<script type="text/javascript" src="main.js"></script>
