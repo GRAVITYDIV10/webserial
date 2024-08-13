@@ -4,7 +4,7 @@ function term_handler(str) {
 	serial_txs(str);
 }
 
-var term = new Term(80, 30, 10000, 12);
+var term = new Term( {cols: 80, rows: 30, scrollback: 10000, fontSize: 14} );
 term.setKeyHandler(term_handler);
 term.open(document.getElementById("term_container"),
 	  document.getElementById("term_paste"));
@@ -252,4 +252,9 @@ async function serial_signal_get() {
 		console.log(e);
 	}
 	return ret;
+}
+
+function change_title() {
+	var custom_title_el = document.getElementById("custom_title");
+	document.title = custom_title_el.value;
 }
